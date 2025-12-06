@@ -1,7 +1,56 @@
-# practice
+```mermaid
 
-sequenceDiagram
-    participant User
-    participant Server
-    User->>Server: Request data
-    Server-->>User: Response
+flowchart TD
+
+    %% External Entities
+    User((Business User))
+    Supplier((Supplier))
+    SupplierAccount((Supplier Account))
+    Approver((Approver))
+
+    %% Data Stores
+    DS_Intake[[Intake Request Data]]
+    DS_Sourcing[[Sourcing Event Data]]
+    DS_Contract[[Contract Repository]]
+    DS_P2P[[P2P / AP Data]]
+
+    %% Processes
+    P1[Submit Intake Request]
+    P2[Intake Review & Approval]
+    P3[Create Sourcing Event]
+    P4[Evaluate Bids & Award]
+    P5[Create & Sign Contract]
+    P6[Send Contract to P2P]
+    P7[PO Creation & 3-way Match]
+    P8[Issue Payment]
+
+    %% Flows
+    subgraph Intake
+        User --> P1 --> DS_Intake
+        DS_Intake --> P2
+        Approver --> P2 --> DS_Intake
+    end
+
+    subgraph Sourcing
+        P2 --> P3 --> DS_Sourcing
+    
+        Supplier --> P4
+        DS_Sourcing --> P4 --> DS_Sourcing
+    end
+    
+    subgraph CLM
+        P4 --> P5 --> DS_Contract
+        Supplier --> P5
+        P5 --> P6 --> DS_P2P
+    end
+
+
+    subgraph P2P
+        User --> P7
+        Supplier --> P7
+        DS_P2P --> P7 --> P8
+        P8 --> User
+        P8 --> SupplierAccount
+    end
+
+
