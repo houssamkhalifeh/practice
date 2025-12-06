@@ -1,4 +1,35 @@
 
+| Item   | Quantity | Price  |
+|--------|---------|--------|
+| Laptop | 10      | $1000  |
+| Mouse  | 50      | $20    |
+
+
+```mermaid
+classDiagram
+    class Table {
+        <<Item>> Laptop
+        <<Quantity>> 10
+        <<Price>> $1000
+    }
+    class Table2 {
+        <<Item>> Mouse
+        <<Quantity>> 50
+        <<Price>> $20
+    }
+
+Table-->Table2
+```
+```mermaid
+
+flowchart TB
+    subgraph Table
+        A1["Item"] --> A2["Quantity"] --> A3["Price"]
+        B1["Laptop"] --> B2["10"] --> B3["$1000"]
+        C1["Mouse"] --> C2["50"] --> C3["$20"]
+    end
+
+```
 ```mermaid
 
 C4Context
