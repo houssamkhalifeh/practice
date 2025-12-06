@@ -1,6 +1,9 @@
 
 ```mermaid
-
+flowchart LR
+    A[📄 Purchase Order] --> B[📦 Goods Receipt] --> C[💰 Invoice]
+```
+```mermaid
 flowchart LR
     A[Intake Manager] --> B[Sourcing Engine]
     B --> |Confirmed| C[Contract Manager]
