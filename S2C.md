@@ -1,10 +1,17 @@
 
-| Item   | Quantity | Price  |
-|--------|---------|--------|
-| Laptop | 10      | $1000  |
-| Mouse  | 50      | $20    |
+```mermaid
+
+flowchart LR
+    A[Intake Manager] --> B[Sourcing Engine]
+    B --> |Confirmed| C[Contract Manager]
+
+    %% Style nodes
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#bfb,stroke:#333,stroke-width:2px
 
 
+```
 ```mermaid
 classDiagram
     class Table {
@@ -23,11 +30,16 @@ Table-->Table2
 ```mermaid
 
 flowchart TB
-    subgraph Table
-        A1["Item"] --> A2["Quantity"] --> A3["Price"]
-        B1["Laptop"] --> B2["10"] --> B3["$1000"]
-        C1["Mouse"] --> C2["50"] --> C3["$20"]
+    subgraph Table0
+        subgraph Table
+            A1["Item"] --> A2["Quantity"] --> A3["Price"]
+            B1["Laptop"] --> B2["10"] --> B3["$1000"]
+            C1["Mouse"] --> C2["50"] --> C3["$20"]
+        end
     end
+
+    %% Style nodes
+    style Table0 fill:#f9f,stroke:#333,stroke-width:2px
 
 ```
 ```mermaid
