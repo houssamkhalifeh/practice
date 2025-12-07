@@ -118,7 +118,7 @@ flowchart TD
     P7[PO Creation & 3-way Match]
     P8[Issue Payment]
 
-    subgraph SupplierSystem
+    subgraph Supplier System
         Supplier
         SupplierAccount
     end
@@ -133,8 +133,8 @@ flowchart TD
     %% Flows
     subgraph Intake
         User --> P1 --> DS_Intake
-        DS_Intake --> P2
         Approver --> P2 --> DS_Intake
+        DS_Intake --> P2
     end
 
     subgraph Sourcing
@@ -148,11 +148,9 @@ flowchart TD
     end
 
 
-    subgraph SupplierSystem
         Supplier --> P7
         Supplier --> P5
         Supplier --> P4
-    end
 
 
     subgraph P2P
