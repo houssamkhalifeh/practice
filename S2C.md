@@ -1,6 +1,9 @@
 ```mermaid
 flowchart TD
 
+    %% Style nodes
+    style P2P fill:#f9f,stroke:#333,stroke-width:2px
+
     %% External Entities
     User((Business User))
     Supplier((Supplier))
@@ -64,4 +67,6 @@ flowchart TD
         P8 --> User
         P8 --> SupplierAccount
     end
+
+
 ```
