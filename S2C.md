@@ -1,5 +1,12 @@
 ```mermaid
 flowchart TD
+    External
+    %% Style nodes
+    style External fill:#DDDAD9,stroke:#333,stroke-width:2px
+    style SIS fill:#DDDAD9,stroke:#333,stroke-width:2px
+    style P2P fill:#DDDAD9,stroke:#333,stroke-width:2px
+    style S2C fill:#E8F8FD,stroke:#333,stroke-width:2px
+
 
     %% External Entities
     User((Business User))
@@ -40,12 +47,6 @@ flowchart TD
         CLM
     end
     
-    %% Style nodes
-    style SIS fill:#DDDAD9,stroke:#333,stroke-width:2px
-    style P2P fill:#DDDAD9,stroke:#333,stroke-width:2px
-    style S2C fill:#E8F8FD,stroke:#333,stroke-width:2px
-
-
     %% Flows
     subgraph Intake
         Approver --> P2 --> DS_Intake
