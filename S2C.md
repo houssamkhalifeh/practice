@@ -1,7 +1,9 @@
 ```mermaid
 flowchart TD
+
     External
     %% Style nodes
+    style Scope fill:#E8F8FD,stroke:#333,stroke-width:2px
     style External fill:#DDDAD9,stroke:#333,stroke-width:2px
     style SIS fill:#DDDAD9,stroke:#333,stroke-width:2px
     style P2P fill:#DDDAD9,stroke:#333,stroke-width:2px
