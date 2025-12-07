@@ -1,9 +1,6 @@
 ```mermaid
 flowchart TD
 
-    %% Style nodes
-    style P2P fill:#f9f,stroke:#333,stroke-width:2px
-
     %% External Entities
     User((Business User))
     Supplier((Supplier))
@@ -26,7 +23,7 @@ flowchart TD
     P7[PO Creation & 3-way Match]
     P8[Issue Payment]
 
-    subgraph Supplier System
+    subgraph SIS
         Supplier
         SupplierAccount
     end
@@ -37,11 +34,22 @@ flowchart TD
         P8
     end
 
+    subgraph S2C
+        Intake
+        Sourcing
+        CLM
+    end
+    
+    %% Style nodes
+    style SIS fill:#DDDAD9,stroke:#333,stroke-width:2px
+    style P2P fill:#DDDAD9,stroke:#333,stroke-width:2px
+    style S2C fill:#E8F8FD,stroke:#333,stroke-width:2px
+
 
     %% Flows
     subgraph Intake
-        User --> P1 --> DS_Intake
         Approver --> P2 --> DS_Intake
+        User --> P1 --> DS_Intake
         DS_Intake --> P2
     end
 
@@ -56,17 +64,15 @@ flowchart TD
     end
 
 
-        Supplier --> P7
-        Supplier --> P5
-        Supplier --> P4
+    Supplier --> P7
+    Supplier --> P5
+    Supplier --> P4
 
 
-    subgraph P2P
-        User --> P7
-        DS_P2P --> P7 --> P8
-        P8 --> User
-        P8 --> SupplierAccount
-    end
+    DS_P2P --> P7 --> P8
+    P8 --> SupplierAccount
+    User --> P7
+    P8 --> User
 
 
 ```
